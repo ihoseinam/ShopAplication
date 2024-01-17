@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#3C3737"
+    android:orientation="vertical"
+    android:padding="5dp">
+<View
+    android:id="@+id/fabcancel"
+    android:layout_width="150dp"
+    android:layout_height="4dp"
+    android:layout_gravity="center"
+    android:layout_marginBottom="3dp"
+    android:background="@color/white" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edt_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/txt_back"
+        android:ems="10"
+        android:hint="نام کامل"
+        android:inputType="textShortMessage"
+        android:maxLength="30"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="#8E8C8C"
+        android:textSize="20sp" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edt_call"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/txt_back"
+        android:ems="10"
+        android:gravity="end"
+        android:hint="شماره تماس"
+        android:inputType="phone"
+        android:maxLength="30"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="#8E8C8C"
+        android:textSize="20sp" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edt_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/txt_back"
+        android:ems="10"
+        android:hint="آدرس ایمیل"
+        android:inputType="textEmailAddress"
+        android:maxLength="30"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="#8E8C8C"
+        android:textSize="20sp" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edt_addres"
+        android:layout_width="match_parent"
+        android:layout_height="95dp"
+        android:layout_margin="3dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/txt_back"
+        android:ems="50"
+        android:gravity="start"
+        android:hint="آدرس کامل"
+        android:inputType="textLongMessage"
+        android:maxLength="50"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="#8E8C8C"
+        android:textSize="20sp" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/notes_comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/txt_back"
+        android:ems="10"
+        android:hint="یادداشت برای فروشنده(اختیاری)"
+        android:inputType="textShortMessage"
+        android:maxLength="30"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="#8E8C8C"
+        android:textSize="20sp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_send_order"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="ثبت سفارش"
+        android:textColor="#D8B914"
+        android:textSize="20sp"
+        app:backgroundTint="@color/black"
+        app:cornerRadius="10dp"
+        app:icon="@drawable/baseline_send_24"
+        app:iconGravity="start"
+        app:iconSize="30dp"
+        app:iconTint="#D8B914" />
+
+</LinearLayout>
