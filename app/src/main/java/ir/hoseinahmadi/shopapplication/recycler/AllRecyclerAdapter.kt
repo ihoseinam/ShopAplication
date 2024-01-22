@@ -62,15 +62,6 @@ class AllRecyclerAdapter(
                     val dialog = BottomSheetDialog(context)
                     val view = ActivityPassBinding.inflate(context.layoutInflater)
                     view.btnConfirm.setOnClickListener {
-                        if (view.textInputPass.editText?.text.toString() == "EEEEE") {
-                            val intent = Intent(context, ActivityInfo::class.java)
-                            intent.putExtra("name", product.name)
-                            intent.putExtra("price", product.price)
-                            intent.putExtra("img", product.imgAddresss)
-                            intent.putExtra("rating", product.rating)
-                            context.startActivity(intent)
-                            dialog.dismiss()
-                        }
                         if (view.textInputPass.editText?.text.toString() == "psamoE8585E") {
                             val intent = Intent(context, ActivityInfo::class.java)
                             intent.putExtra("name", product.name)
@@ -94,15 +85,6 @@ class AllRecyclerAdapter(
                     val dialog = BottomSheetDialog(context)
                     val view = ActivityPassBinding.inflate(context.layoutInflater)
                     view.btnConfirm.setOnClickListener {
-                        if (view.textInputPass.editText?.text.toString() == "EEEEE") {
-                            val intent = Intent(context, ActivityInfo::class.java)
-                            intent.putExtra("name", product.name)
-                            intent.putExtra("price", product.price)
-                            intent.putExtra("img", product.imgAddresss)
-                            intent.putExtra("rating", product.rating)
-                            context.startActivity(intent)
-                            dialog.dismiss()
-                        }
                         if (view.textInputPass.editText?.text.toString() == "hazratE33B33") {
                             val intent = Intent(context, ActivityInfo::class.java)
                             intent.putExtra("name", product.name)

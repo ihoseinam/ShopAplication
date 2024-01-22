@@ -9,7 +9,7 @@
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:layout_marginTop="5dp"
         android:background="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -30,37 +30,47 @@
 
     <View
         android:id="@+id/view_home"
-        android:layout_width="70dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="50dp"
+        android:layout_width="74dp"
+        android:layout_height="52dp"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view3"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/view_shop"
+        app:layout_constraintTop_toTopOf="@+id/view" />
 
     <View
         android:id="@+id/view_shop"
-        android:layout_width="70dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="50dp"
-        app:layout_constraintBottom_toBottomOf="@+id/view_home"
+        android:layout_width="74dp"
+        android:layout_height="51dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/view_home"
-        app:layout_constraintTop_toBottomOf="@+id/view3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/view_setting"
+        app:layout_constraintTop_toTopOf="@+id/view"
         app:layout_constraintVertical_bias="0.0" />
+
+    <View
+
+        android:id="@+id/view_setting"
+        android:layout_width="74dp"
+        android:layout_height="52dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toStartOf="@+id/view_shop"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/view_profile"
+        app:layout_constraintTop_toTopOf="@+id/view" />
 
     <View
 
         android:id="@+id/view_profile"
-        android:layout_width="70dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintEnd_toStartOf="@+id/view_shop"
-        app:layout_constraintHorizontal_chainStyle="packed"
+        android:layout_width="74dp"
+        android:layout_height="52dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/view_setting"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view3"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="@+id/view" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/img_home"
@@ -86,6 +96,18 @@
         app:srcCompat="@drawable/ic_shop_zori_e" />
 
     <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img_setting"
+
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:tint="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/view_setting"
+        app:layout_constraintEnd_toEndOf="@+id/view_setting"
+        app:layout_constraintStart_toStartOf="@+id/view_setting"
+        app:layout_constraintTop_toTopOf="@+id/view_setting"
+        app:srcCompat="@drawable/ic_settin_zori_e" />
+
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/img_profile"
         android:layout_width="30dp"
         android:layout_height="30dp"
@@ -94,6 +116,6 @@
         app:layout_constraintEnd_toEndOf="@+id/view_profile"
         app:layout_constraintStart_toStartOf="@+id/view_profile"
         app:layout_constraintTop_toTopOf="@+id/view_profile"
-        app:srcCompat="@drawable/ic_info_e" />
+        app:srcCompat="@drawable/ic_profile_zori_e" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
