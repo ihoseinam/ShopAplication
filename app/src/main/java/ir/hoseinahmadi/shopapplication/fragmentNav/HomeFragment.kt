@@ -27,15 +27,16 @@ class HomeFragment : Fragment() {
     private lateinit var dataLove: Array<DataProduct>
     private lateinit var dataTakh: Array<DataProduct>
 
-    private lateinit var viewpager2 : ViewPager2
+    private lateinit var viewpager2: ViewPager2
     private lateinit var pageChangeListener: ViewPager2.OnPageChangeCallback
 
     private val params = LinearLayout.LayoutParams(
         LinearLayout.LayoutParams.WRAP_CONTENT,
         LinearLayout.LayoutParams.WRAP_CONTENT
     ).apply {
-        setMargins(8,0,8,0)
+        setMargins(8, 0, 8, 0)
     }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -74,6 +75,14 @@ class HomeFragment : Fragment() {
             ImageItem(
                 UUID.randomUUID().toString(),
                 R.drawable.psamo
+            ),
+            ImageItem(
+                UUID.randomUUID().toString(),
+                R.drawable.psamo
+            ),
+            ImageItem(
+                UUID.randomUUID().toString(),
+                R.drawable.psamo
             )
         )
 
@@ -82,27 +91,27 @@ class HomeFragment : Fragment() {
         viewpager2.adapter = imageAdapter
         imageAdapter.submitList(imageList)
 
-        val slideDotLL =binding.slideDotLL
+        val slideDotLL = binding.slideDotLL
         val dotsImage = Array(imageList.size) { ImageView(context) }
 
         dotsImage.forEach {
             it.setImageResource(
                 R.drawable.non_active_dot
             )
-            slideDotLL.addView(it,params)
+            slideDotLL.addView(it, params)
         }
 
         // default first dot selected
         dotsImage[0].setImageResource(R.drawable.active_dot)
 
-        pageChangeListener = object : ViewPager2.OnPageChangeCallback(){
+        pageChangeListener = object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 dotsImage.mapIndexed { index, imageView ->
-                    if (position == index){
+                    if (position == index) {
                         imageView.setImageResource(
                             R.drawable.active_dot
                         )
-                    }else{
+                    } else {
                         imageView.setImageResource(R.drawable.non_active_dot)
                     }
                 }
@@ -160,7 +169,8 @@ class HomeFragment : Fragment() {
                     "https://github.com/ihoseinam/video-shop/raw/main/sadjat/1.mp4",
                     "https://github.com/ihoseinam/video-shop/raw/main/sadjat/2.mp4",
                     "https://github.com/ihoseinam/video-shop/raw/main/sadjat/3.mp4",
-                ), "گذاشتن کون سید محمت",
+                ),
+                "گذاشتن کون سید محمت",
             ),
             DataProduct(
                 6, "محسن", 10000, R.drawable.hazrat, 3.0, getString(R.string.mohsen),
@@ -215,7 +225,8 @@ class HomeFragment : Fragment() {
                     "https://github.com/ihoseinam/video-shop/raw/main/oveis/2.mp4",
                 ), "کصلک شدید"
 
-            ),            DataProduct(
+            ),
+            DataProduct(
                 2, "معید", 5000, R.drawable.psamo, 4.5, getString(R.string.psamo),
                 arrayListOf(
                     "https://github.com/ihoseinam/video-shop/raw/main/moeid/1.mp4",
@@ -255,16 +266,16 @@ class HomeFragment : Fragment() {
         )
 
         dataTakh = arrayOf(
-                DataProduct(
-                    3, "یونس", 1500, R.drawable.sondi, 0.5, getString(R.string.sondi),
-                    arrayListOf(
-                        "https://github.com/ihoseinam/video-shop/raw/main/younes/1.mp4",
-                        "https://github.com/ihoseinam/video-shop/raw/main/younes/2.mp4",
-                        "https://github.com/ihoseinam/video-shop/raw/main/younes/3.mp4",
-                        "https://github.com/ihoseinam/video-shop/raw/main/younes/4.mp4"
-                    ),
-                    "آپلودر ",
+            DataProduct(
+                3, "یونس", 1500, R.drawable.sondi, 0.5, getString(R.string.sondi),
+                arrayListOf(
+                    "https://github.com/ihoseinam/video-shop/raw/main/younes/1.mp4",
+                    "https://github.com/ihoseinam/video-shop/raw/main/younes/2.mp4",
+                    "https://github.com/ihoseinam/video-shop/raw/main/younes/3.mp4",
+                    "https://github.com/ihoseinam/video-shop/raw/main/younes/4.mp4"
                 ),
+                "آپلودر ",
+            ),
             DataProduct(
                 8, "جاسم ", 10, R.drawable.jasem, 0.5, getString(R.string.jasem),
                 arrayListOf(
