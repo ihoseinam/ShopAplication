@@ -30,17 +30,45 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <androidx.cardview.widget.CardView
+            <RelativeLayout
+                android:background="#ffff"
                 android:layout_marginTop="5dp"
+                android:id="@+id/eeeee"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/viewpager2"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:layout_marginTop="25dp" />
+
+                <LinearLayout
+                    android:id="@+id/slideDotLL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/viewpager2"
+                    android:layout_marginTop="-16dp"
+                    android:gravity="center"
+                    android:orientation="horizontal" />
+
+            </RelativeLayout>
+
+
+            <androidx.cardview.widget.CardView
                 android:id="@+id/cardView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/white"
+                android:layout_marginTop="8dp"
+                app:cardBackgroundColor="#DFFF1100"
                 app:cardCornerRadius="5dp"
                 app:cardElevation="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toBottomOf="@+id/eeeee">
 
                 <LinearLayout
                     android:id="@+id/lin1"
@@ -54,8 +82,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="end"
+                        android:background="@color/blu"
                         android:text="محصولات حراجی"
-                        android:textColor="@color/black"
+                        android:textColor="@color/ebb2"
                         android:textSize="20sp" />
 
                     <androidx.recyclerview.widget.RecyclerView

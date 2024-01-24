@@ -5,21 +5,37 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.widget.ViewPager2
+import com.coding.imagesliderwithdotindicatorviewpager2.adapters.ImageAdapter
+import com.coding.imagesliderwithdotindicatorviewpager2.models.ImageItem
 import ir.hoseinahmadi.shopapplication.R
 import ir.hoseinahmadi.shopapplication.databinding.HomeFragmentNavBinding
 import ir.hoseinahmadi.shopapplication.recycler.AllRecyclerAdapter
 import ir.hoseinahmadi.shopapplication.recycler.DataProduct
+import java.util.UUID
 
 class HomeFragment : Fragment() {
     private lateinit var binding: HomeFragmentNavBinding
     private lateinit var dataAll: Array<DataProduct>
     private lateinit var dataLove: Array<DataProduct>
     private lateinit var dataTakh: Array<DataProduct>
+
+    private lateinit var viewpager2 : ViewPager2
+    private lateinit var pageChangeListener: ViewPager2.OnPageChangeCallback
+
+    private val params = LinearLayout.LayoutParams(
+        LinearLayout.LayoutParams.WRAP_CONTENT,
+        LinearLayout.LayoutParams.WRAP_CONTENT
+    ).apply {
+        setMargins(8,0,8,0)
+    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -32,6 +48,68 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewpager2 = binding.viewpager2
+
+        val imageList = arrayListOf(
+            ImageItem(
+                UUID.randomUUID().toString(),
+                R.drawable.amir
+            ),
+            ImageItem(
+                UUID.randomUUID().toString(),
+                R.drawable.hazrat
+            ),
+            ImageItem(
+                UUID.randomUUID().toString(),
+                R.drawable.hojat
+            ),
+            ImageItem(
+                UUID.randomUUID().toString(),
+                R.drawable.hosey
+            ),
+            ImageItem(
+                UUID.randomUUID().toString(),
+                R.drawable.jasem
+            ),
+            ImageItem(
+                UUID.randomUUID().toString(),
+                R.drawable.psamo
+            )
+        )
+
+
+        val imageAdapter = ImageAdapter()
+        viewpager2.adapter = imageAdapter
+        imageAdapter.submitList(imageList)
+
+        val slideDotLL =binding.slideDotLL
+        val dotsImage = Array(imageList.size) { ImageView(context) }
+
+        dotsImage.forEach {
+            it.setImageResource(
+                R.drawable.non_active_dot
+            )
+            slideDotLL.addView(it,params)
+        }
+
+        // default first dot selected
+        dotsImage[0].setImageResource(R.drawable.active_dot)
+
+        pageChangeListener = object : ViewPager2.OnPageChangeCallback(){
+            override fun onPageSelected(position: Int) {
+                dotsImage.mapIndexed { index, imageView ->
+                    if (position == index){
+                        imageView.setImageResource(
+                            R.drawable.active_dot
+                        )
+                    }else{
+                        imageView.setImageResource(R.drawable.non_active_dot)
+                    }
+                }
+                super.onPageSelected(position)
+            }
+        }
+        viewpager2.registerOnPageChangeCallback(pageChangeListener)
 
 
 
