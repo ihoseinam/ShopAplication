@@ -57,7 +57,7 @@ class HomeFragmentInfo : Fragment(
                     try {
                         db.userDao().insertUser(
                             UserEntity(
-                                id = id,
+                                id = id!!,
                                 name = name!!,
                                 price = price!!,
                             )

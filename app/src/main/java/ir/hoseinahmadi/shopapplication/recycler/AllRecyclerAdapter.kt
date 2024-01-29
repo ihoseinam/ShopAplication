@@ -62,6 +62,7 @@ class AllRecyclerAdapter(
                     view.btnConfirm.setOnClickListener {
                         if (view.textInputPass.editText?.text.toString() == "psamoE8585E") {
                             val intent = Intent(context, ActivityInfo::class.java)
+                            intent.putExtra("id",product.id)
                             intent.putExtra("name", product.name)
                             intent.putExtra("price", product.price)
                             intent.putExtra("img", product.imgAddresss)
@@ -79,31 +80,10 @@ class AllRecyclerAdapter(
                     }
                     dialog.setContentView(view.root)
                     dialog.show()
-                } else if (product.id == 6) {
-                    val dialog = BottomSheetDialog(context)
-                    val view = ActivityPassBinding.inflate(context.layoutInflater)
-                    view.btnConfirm.setOnClickListener {
-                        if (view.textInputPass.editText?.text.toString() == "hazratE33B33") {
-                            val intent = Intent(context, ActivityInfo::class.java)
-                            intent.putExtra("name", product.name)
-                            intent.putExtra("price", product.price)
-                            intent.putExtra("img", product.imgAddresss)
-                            intent.putExtra("rating", product.rating)
-                            intent.putExtra("info", product.info)
-                            intent.putStringArrayListExtra("video", product.video)
-                            intent.putExtra("vip", product.vip)
-                            context.startActivity(intent)
-                            dialog.dismiss()
-                        }
-                        if (view.textInputPass.editText?.text.toString() != "hazratE33B33") {
-                            view.textInputPass.error = "رمز اشتباه است "
-                        }
-
-                    }
-                    dialog.setContentView(view.root)
-                    dialog.show()
-                } else {
+                }
+                else {
                     val intent = Intent(context, ActivityInfo::class.java)
+                    intent.putExtra("id",product.id)
                     intent.putExtra("name", product.name)
                     intent.putExtra("price", product.price)
                     intent.putExtra("img", product.imgAddresss)

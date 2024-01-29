@@ -143,7 +143,7 @@ class HomeFragment : Fragment() {
                 "  دست کردن تو کون تاآرنج و لس لس",
             ),
             DataProduct(
-                1, "اویس اصلی", 8000, R.drawable.oves, 4.0, "ورژن اصلی اویس ",
+                1, "اویس اصلی", 25000000, R.drawable.oves, 4.0, "ورژن اصلی اویس ",
                 arrayListOf(
                     "https://github.com/ihoseinam/video-shop/raw/main/oveis/1.mp4",
                     "https://github.com/ihoseinam/video-shop/raw/main/oveis/2.mp4",

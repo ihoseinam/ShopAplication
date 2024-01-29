@@ -7,7 +7,7 @@ import ir.hoseinahmadi.shopapplication.Rom.db.DBHandler
 
 @Entity(tableName = DBHandler.USER_TABLE)
 data class UserEntity(
-  @PrimaryKey val id: Int?,
+  @PrimaryKey val id: Int,
   @ColumnInfo val name: String,
   @ColumnInfo val price: Int,
 
