@@ -2,16 +2,13 @@ package ir.hoseinahmadi.shopapplication.recycler
 
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.database.sqlite.SQLiteConstraintException
 import android.graphics.Color
-import android.net.Uri
 import android.os.Handler
 import android.os.Looper
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.LifecycleCoroutineScope
 import androidx.recyclerview.widget.RecyclerView
@@ -54,7 +51,8 @@ class AllRecyclerAdapter(
         fun setDataProduct(product: DataProduct) {
             val db = DBHandler.getDatabase(context)
             binding.txtName.text = product.name
-            binding.txtPrice.text = "$ ${product.price}"
+            val zori = String.format("%,d", product.price)
+            binding.txtPrice.text = zori
             binding.imageView.setImageResource(product.imgAddresss)
 
             binding.root.setOnClickListener {

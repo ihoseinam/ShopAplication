@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface UserDAO {
     @Insert
-    
+
     fun insertUser(vararg user: UserEntity)
 
     @get:Query("SELECT * FROM ${DBHandler.USER_TABLE}")
@@ -20,10 +20,11 @@ interface UserDAO {
     @Query("DELETE FROM ${DBHandler.USER_TABLE}")
     fun deleteAllUser()
 
-   @get:Query("SELECT price FROM ${DBHandler.USER_TABLE}")
+    @get:Query("SELECT price FROM ${DBHandler.USER_TABLE}")
     val getzori: Flow<List<Int>>
 
-
+    @Delete
+    fun deleteUsers(user: UserEntity)
 
 
 }

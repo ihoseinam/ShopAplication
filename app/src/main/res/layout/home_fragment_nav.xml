@@ -9,18 +9,15 @@
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/back_toolbar">
+        android:background="@drawable/back_toolbar"
+        >
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
             android:layout_marginEnd="5dp"
-            android:padding="8dp"
-            android:textStyle="bold"
-            android:text="فروشگاه حیوانات"
-            android:textSize="16sp"
-            android:textColor="@color/black" />
+            app:srcCompat="@drawable/digi_red_persian" />
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.core.widget.NestedScrollView
@@ -32,11 +29,11 @@
             android:layout_height="wrap_content">
 
             <RelativeLayout
-                android:background="#ffff"
-                android:layout_marginTop="5dp"
                 android:id="@+id/eeeee"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="#ffff"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -64,7 +61,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                app:cardBackgroundColor="#DFFF1100"
+                app:cardBackgroundColor="#DFFFFFFF"
                 app:cardCornerRadius="5dp"
                 app:cardElevation="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -79,16 +76,43 @@
                     android:orientation="vertical"
                     android:padding="10dp">
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="wrap_content"
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="end"
-                        android:text="محصولات حراجی"
-                        android:textStyle="bold"
-                        android:textColor="@color/ebb2"
-                        android:textSize="20sp" />
+                        android:orientation="horizontal">
+
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/appCompatImageView2"
+                            android:layout_width="55dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="top"
+                            android:background="@color/white"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/box" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:gravity="end"
+                            android:text="محصولات حراجی"
+                            android:textColor="@color/black"
+                            android:textSize="22sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/appCompatImageView2"
+                            app:layout_constraintEnd_toStartOf="@+id/appCompatImageView2"
+                            app:layout_constraintHorizontal_bias="1.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/appCompatImageView2"
+                            app:layout_constraintVertical_bias="0.666" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
                     <androidx.recyclerview.widget.RecyclerView
+                        android:layout_marginTop="5dp"
                         android:id="@+id/recyclerView1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
@@ -98,13 +122,13 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:layout_marginTop="7dp"
                 android:id="@+id/card2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="5dp"
                 app:cardElevation="8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardView">
@@ -144,8 +168,7 @@
                 android:padding="5dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/card2"
-                >
+                app:layout_constraintTop_toBottomOf="@+id/card2">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"

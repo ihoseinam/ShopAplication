@@ -54,11 +54,11 @@ class HomeFragment : Fragment() {
         val imageList = arrayListOf(
             ImageItem(
                 UUID.randomUUID().toString(),
-                R.drawable.amir
+                R.drawable.slide1
             ),
             ImageItem(
                 UUID.randomUUID().toString(),
-                R.drawable.hazrat
+                R.drawable.slide2
             ),
             ImageItem(
                 UUID.randomUUID().toString(),

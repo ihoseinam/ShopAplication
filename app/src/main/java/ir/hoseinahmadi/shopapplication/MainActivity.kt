@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity(),ActiveItem {
             .beginTransaction()
             .replace(R.id.frameLayout,HomeFragment())
             .commit()
+
         binding.bottomNav.onClickHelper(this)
     }
 

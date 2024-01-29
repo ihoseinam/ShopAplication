@@ -57,7 +57,6 @@ class ShopFragment : Fragment(), Request {
         addOrder()
         update()
 
-        binding.btndelet.setOnClickListener { deleteOrder() }
 
         binding.btnAddOrder.setOnClickListener {
             val dialog = BottomSheetDialog(context as Activity)
@@ -105,7 +104,8 @@ class ShopFragment : Fragment(), Request {
                     val totalAge = agesList.sum()
 
                     withContext(Dispatchers.Main) {
-                        binding.textView4.text = " مجموع سبد خرید\n $ ${totalAge} "
+                        val zori = String.format("%,d", totalAge)
+                        binding.txtPrice.text = zori
                     }
                 }
             }
@@ -139,7 +139,7 @@ class ShopFragment : Fragment(), Request {
     private fun addOrder() {
         lifecycleScope.launch {
             readItemsFromDatabase().collect { shoppingItems ->
-                val adapter = ShoppingCartAdapter(shoppingItems)
+                val adapter = ShoppingCartAdapter(shoppingItems,lifecycleScope,context as Activity)
                 binding.recyclerView.layoutManager = LinearLayoutManager(context)
                 binding.recyclerView.adapter = adapter
             }
