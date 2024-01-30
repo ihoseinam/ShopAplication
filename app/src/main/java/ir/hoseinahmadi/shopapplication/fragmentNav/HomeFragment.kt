@@ -23,7 +23,7 @@ import java.util.UUID
 
 class HomeFragment : Fragment() {
     private lateinit var binding: HomeFragmentNavBinding
-    private lateinit var dataAll: Array<DataProduct>
+    private lateinit var dataSa: Array<DataProduct>
     private lateinit var dataLove: Array<DataProduct>
     private lateinit var dataTakh: Array<DataProduct>
 
@@ -122,19 +122,9 @@ class HomeFragment : Fragment() {
 
 
 
-        dataAll = arrayOf(
+        dataSa = arrayOf(
             DataProduct(
-                3, "یونس", 1500, R.drawable.sondi, 0.5, getString(R.string.sondi),
-                arrayListOf(
-                    "https://github.com/ihoseinam/video-shop/raw/main/younes/1.mp4",
-                    "https://github.com/ihoseinam/video-shop/raw/main/younes/2.mp4",
-                    "https://github.com/ihoseinam/video-shop/raw/main/younes/3.mp4",
-                    "https://github.com/ihoseinam/video-shop/raw/main/younes/4.mp4"
-                ),
-                "آپلودر ",
-            ),
-            DataProduct(
-                4, " حجت", 5000, R.drawable.hojat, 2.5, getString(R.string.hojat),
+                4, " حجت", 4500000, R.drawable.hojat, 2.5, getString(R.string.hojat),
                 arrayListOf(
                     "https://github.com/ihoseinam/video-shop/raw/main/hojat/1.mp4",
                     "https://github.com/ihoseinam/video-shop/raw/main/hojat/2.mp4",
@@ -143,7 +133,7 @@ class HomeFragment : Fragment() {
                 "  دست کردن تو کون تاآرنج و لس لس",
             ),
             DataProduct(
-                1, "اویس اصلی", 25000000, R.drawable.oves, 4.0, "ورژن اصلی اویس ",
+                1, "اویس اصلی", 1250000, R.drawable.oves, 4.0, "ورژن اصلی اویس ",
                 arrayListOf(
                     "https://github.com/ihoseinam/video-shop/raw/main/oveis/1.mp4",
                     "https://github.com/ihoseinam/video-shop/raw/main/oveis/2.mp4",
@@ -151,20 +141,7 @@ class HomeFragment : Fragment() {
 
             ),
             DataProduct(
-                2, "معید", 5000, R.drawable.psamo, 4.5, getString(R.string.psamo),
-                arrayListOf(
-                    "https://github.com/ihoseinam/video-shop/raw/main/moeid/1.mp4",
-                    "https://github.com/ihoseinam/video-shop/raw/main/moeid/2.mp4",
-                    "https://github.com/ihoseinam/video-shop/raw/main/moeid/3.mp4",
-                    "https://github.com/ihoseinam/video-shop/raw/main/moeid/4.mp4",
-                    "https://github.com/ihoseinam/video-shop/raw/main/moeid/5.mp4",
-                    "https://github.com/ihoseinam/video-shop/raw/main/moeid/6.mp4",
-                    "https://github.com/ihoseinam/video-shop/raw/main/moeid/7.mp4"
-                ),
-                "کارشناسی رنگ و یافتن کد رنگی هر فرد از روی عکس",
-            ),
-            DataProduct(
-                5, " سجاد", 8000, R.drawable.sardar, 4.0, getString(R.string.sardar),
+                5, " سجاد", 8000000, R.drawable.sardar, 4.0, getString(R.string.sardar),
                 arrayListOf(
                     "https://github.com/ihoseinam/video-shop/raw/main/sadjat/1.mp4",
                     "https://github.com/ihoseinam/video-shop/raw/main/sadjat/2.mp4",
@@ -172,20 +149,9 @@ class HomeFragment : Fragment() {
                 ),
                 "گذاشتن کون سید محمت",
             ),
+
             DataProduct(
-                6, "محسن", 10000, R.drawable.hazrat, 3.0, getString(R.string.mohsen),
-                arrayListOf(
-                    "https://github.com/ihoseinam/video-shop/raw/main/mohsen/1.mp4",
-                    "https://github.com/ihoseinam/video-shop/raw/main/mohsen/2.mp4",
-                    "https://github.com/ihoseinam/video-shop/raw/main/mohsen/3.mp4",
-                    "https://github.com/ihoseinam/video-shop/raw/main/mohsen/4.mp4",
-                    "https://github.com/ihoseinam/video-shop/raw/main/mohsen/5.mp4",
-                    "https://github.com/ihoseinam/video-shop/raw/main/mohsen/6.mp4",
-                    "https://github.com/ihoseinam/video-shop/raw/main/mohsen/8.mp4",
-                ), "دهن گاییده بازی"
-            ),
-            DataProduct(
-                7, "ممد ", 3000, R.drawable.mmd, 1.5, getString(R.string.mmd),
+                7, "ممد ", 2900000, R.drawable.mmd, 1.5, getString(R.string.mmd),
                 arrayListOf(
                     "https://github.com/ihoseinam/video-shop/raw/main/mmd/1.mp4",
                     "https://github.com/ihoseinam/video-shop/raw/main/mmd/2.mp4",
@@ -193,41 +159,12 @@ class HomeFragment : Fragment() {
                     "https://github.com/ihoseinam/video-shop/raw/main/mmd/4.mp4",
                 ), "تریسام با سردار و بروبچ"
             ),
-            DataProduct(
-                8, "جاسم ", 10, R.drawable.jasem, 0.5, getString(R.string.jasem),
-                arrayListOf(
-                    "https://github.com/ihoseinam/video-shop/raw/main/jasem/1.mp4",
-                    "https://github.com/ihoseinam/video-shop/raw/main/jasem/2.mp4",
-                    "https://github.com/ihoseinam/video-shop/raw/main/jasem/3.mp4",
-                    "https://github.com/ihoseinam/video-shop/raw/main/jasem/4.mp4",
-                    "https://github.com/ihoseinam/video-shop/raw/main/jasem/5.mp4",
-                ), "بالا رفتن از در و دیوار"
-            ),
-            DataProduct(
-                10, "امـیر", 7000, R.drawable.amir, 3.5, getString(R.string.amir),
-                arrayListOf(
-                    "https://github.com/ihoseinam/video-shop/raw/main/amir/1.mp4",
-                    "https://github.com/ihoseinam/video-shop/raw/main/amir/2.mp4",
-                    "https://github.com/ihoseinam/video-shop/raw/main/amir/3.mp4",
-                    "https://github.com/ihoseinam/video-shop/raw/main/amir/4.mp4",
-                    "https://github.com/ihoseinam/video-shop/raw/main/amir/5.mp4",
-                    "https://github.com/ihoseinam/video-shop/raw/main/amir/6.mp4",
-                ),
-                "کصکلک و لس لس"
-            ),
+
         )
 
         dataLove = arrayOf(
             DataProduct(
-                1, "اویس اصلی", 8000, R.drawable.oves, 4.0, "ورژن اصلی اویس ",
-                arrayListOf(
-                    "https://github.com/ihoseinam/video-shop/raw/main/oveis/1.mp4",
-                    "https://github.com/ihoseinam/video-shop/raw/main/oveis/2.mp4",
-                ), "کصلک شدید"
-
-            ),
-            DataProduct(
-                2, "معید", 5000, R.drawable.psamo, 4.5, getString(R.string.psamo),
+                2, "معید", 11000000, R.drawable.psamo, 4.5, getString(R.string.psamo),
                 arrayListOf(
                     "https://github.com/ihoseinam/video-shop/raw/main/moeid/1.mp4",
                     "https://github.com/ihoseinam/video-shop/raw/main/moeid/2.mp4",
@@ -240,7 +177,7 @@ class HomeFragment : Fragment() {
                 "کارشناسی رنگ و یافتن کد رنگی هر فرد از روی عکس",
             ),
             DataProduct(
-                6, "محسن", 10000, R.drawable.hazrat, 3.0, getString(R.string.mohsen),
+                6, "محسن", 10000000, R.drawable.hazrat, 3.0, getString(R.string.mohsen),
                 arrayListOf(
                     "https://github.com/ihoseinam/video-shop/raw/main/mohsen/1.mp4",
                     "https://github.com/ihoseinam/video-shop/raw/main/mohsen/2.mp4",
@@ -252,7 +189,7 @@ class HomeFragment : Fragment() {
                 ), "دهن گاییده بازی"
             ),
             DataProduct(
-                10, "امـیر", 7000, R.drawable.amir, 3.5, getString(R.string.amir),
+                10, "امـیر", 7000000, R.drawable.amir, 3.5, getString(R.string.amir),
                 arrayListOf(
                     "https://github.com/ihoseinam/video-shop/raw/main/amir/1.mp4",
                     "https://github.com/ihoseinam/video-shop/raw/main/amir/2.mp4",
@@ -267,7 +204,7 @@ class HomeFragment : Fragment() {
 
         dataTakh = arrayOf(
             DataProduct(
-                3, "یونس", 1500, R.drawable.sondi, 0.5, getString(R.string.sondi),
+                3, "یونس", 1430000, R.drawable.sondi, 0.5, getString(R.string.sondi),
                 arrayListOf(
                     "https://github.com/ihoseinam/video-shop/raw/main/younes/1.mp4",
                     "https://github.com/ihoseinam/video-shop/raw/main/younes/2.mp4",
@@ -277,7 +214,7 @@ class HomeFragment : Fragment() {
                 "آپلودر ",
             ),
             DataProduct(
-                8, "جاسم ", 10, R.drawable.jasem, 0.5, getString(R.string.jasem),
+                8, "جاسم ", 995000, R.drawable.jasem, 0.5, getString(R.string.jasem),
                 arrayListOf(
                     "https://github.com/ihoseinam/video-shop/raw/main/jasem/1.mp4",
                     "https://github.com/ihoseinam/video-shop/raw/main/jasem/2.mp4",
@@ -286,6 +223,7 @@ class HomeFragment : Fragment() {
                     "https://github.com/ihoseinam/video-shop/raw/main/jasem/5.mp4",
                 ), "بالا رفتن از در و دیوار"
             ),
+
         )
 
         val adapter1 = AllRecyclerAdapter(context as Activity, dataTakh, lifecycleScope)
@@ -304,7 +242,7 @@ class HomeFragment : Fragment() {
         )
         binding.recyclerView2.adapter = adapter2
 
-        val adapter3 = AllRecyclerAdapter(context as Activity, dataAll, lifecycleScope)
+        val adapter3 = AllRecyclerAdapter(context as Activity, dataSa, lifecycleScope)
         binding.recyclerView3.layoutManager = GridLayoutManager(
             context,
             2,

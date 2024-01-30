@@ -173,7 +173,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
-                    android:text="تمامی محصولات"
+                    android:text="سایر محصولات"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
 
