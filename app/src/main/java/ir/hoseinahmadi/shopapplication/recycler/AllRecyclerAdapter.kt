@@ -20,6 +20,7 @@ import ir.hoseinahmadi.shopapplication.activityinfo.ActivityInfo
 import ir.hoseinahmadi.shopapplication.databinding.ActivityPassBinding
 import ir.hoseinahmadi.shopapplication.databinding.ListItemAllBinding
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -28,6 +29,7 @@ class AllRecyclerAdapter(
     private val product: Array<DataProduct>,
     private val coroutineScope: LifecycleCoroutineScope,
     private val snackbarDuration: Int = 1500,
+    private val db: DBHandler = DBHandler.getDatabase(context),
 ) : RecyclerView.Adapter<AllRecyclerAdapter.ProductViewHolder>() {
 
 
@@ -49,28 +51,25 @@ class AllRecyclerAdapter(
         RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("SetTextI18n")
         fun setDataProduct(product: DataProduct) {
-            val db = DBHandler.getDatabase(context)
+            coroutineScope.launch {
+                val userEntity = db.userDao().getUserById(product.id).first()
+                if (userEntity != null) {
+                    binding.fabKharid.visibility = View.INVISIBLE
+                } else {
+                    binding.fabKharid.visibility = View.VISIBLE
+                }
+            }
             binding.txtName.text = product.name
             val zori = String.format("%,d", product.price)
             binding.txtPrice.text = zori
             binding.imageView.setImageResource(product.imgAddresss)
-
             binding.root.setOnClickListener {
                 if (product.id == 2) {
                     val dialog = BottomSheetDialog(context)
                     val view = ActivityPassBinding.inflate(context.layoutInflater)
                     view.btnConfirm.setOnClickListener {
                         if (view.textInputPass.editText?.text.toString() == "psamoE8585E") {
-                            val intent = Intent(context, ActivityInfo::class.java)
-                            intent.putExtra("id",product.id)
-                            intent.putExtra("name", product.name)
-                            intent.putExtra("price", product.price)
-                            intent.putExtra("img", product.imgAddresss)
-                            intent.putExtra("rating", product.rating)
-                            intent.putExtra("info", product.info)
-                            intent.putStringArrayListExtra("video", product.video)
-                            intent.putExtra("vip", product.vip)
-                            context.startActivity(intent)
+                            startActivity(product)
                             dialog.dismiss()
                         }
                         if (view.textInputPass.editText?.text.toString() != "psamoE8585E") {
@@ -80,18 +79,8 @@ class AllRecyclerAdapter(
                     }
                     dialog.setContentView(view.root)
                     dialog.show()
-                }
-                else {
-                    val intent = Intent(context, ActivityInfo::class.java)
-                    intent.putExtra("id",product.id)
-                    intent.putExtra("name", product.name)
-                    intent.putExtra("price", product.price)
-                    intent.putExtra("img", product.imgAddresss)
-                    intent.putExtra("rating", product.rating)
-                    intent.putExtra("info", product.info)
-                    intent.putStringArrayListExtra("video", product.video)
-                    intent.putExtra("vip", product.vip)
-                    context.startActivity(intent)
+                } else {
+                    startActivity(product)
                 }
             }
             binding.fabKharid.setOnClickListener {
@@ -111,6 +100,7 @@ class AllRecyclerAdapter(
                                     "محصول با موفقیت به سبد خرید اضافه شد",
                                     Color.BLACK
                                 )
+                                binding.fabKharid.visibility = View.INVISIBLE
                             }
                         } catch (e: SQLiteConstraintException) {
                             withContext(Dispatchers.Main) {
@@ -139,5 +129,17 @@ class AllRecyclerAdapter(
         snackbar.show()
     }
 
+    private fun startActivity(product: DataProduct) {
+        val intent = Intent(context, ActivityInfo::class.java)
+        intent.putExtra("id", product.id)
+        intent.putExtra("name", product.name)
+        intent.putExtra("price", product.price)
+        intent.putExtra("img", product.imgAddresss)
+        intent.putExtra("rating", product.rating)
+        intent.putExtra("info", product.info)
+        intent.putStringArrayListExtra("video", product.video)
+        intent.putExtra("vip", product.vip)
+        context.startActivity(intent)
+    }
 }
 

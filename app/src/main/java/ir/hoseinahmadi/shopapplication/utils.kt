@@ -1,7 +1,7 @@
 package ir.hoseinahmadi.shopapplication
 
 enum class FragmentType{
-    HOME, SHOP,SETTING,PROFILE
+    HOME, SHOP,PROFILE
 }
 
 interface ActiveItem{

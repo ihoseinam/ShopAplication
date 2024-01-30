@@ -28,7 +28,6 @@ class MainActivity : AppCompatActivity(),ActiveItem {
             FragmentType.HOME ->HomeFragment()
             FragmentType.SHOP ->ShopFragment()
             FragmentType.PROFILE ->InfoFragment()
-            FragmentType.SETTING ->SettingFragment()
         }
 
         supportFragmentManager

@@ -31,11 +31,6 @@ class CustomNav(
             activeItem.setFragment(FragmentType.PROFILE)
 
         }
-        binding.imgSetting.setOnClickListener {
-            activeSetting()
-            activeItem.setFragment(FragmentType.SETTING)
-
-        }
         binding.viewShop.setOnClickListener {
             activeShop()
             activeItem.setFragment(FragmentType.SHOP)
@@ -44,28 +39,20 @@ class CustomNav(
 
     private fun activeHome() {
         binding.imgHome.setImageResource(R.drawable.ic_home_zori)
-        binding.imgSetting.setImageResource(R.drawable.ic_settin_zori_e)
         binding.imgProfile.setImageResource(R.drawable.ic_profile_zori_e)
         binding.imgShop.setImageResource(R.drawable.ic_shop_zori_e)
     }
 
-    private fun activeSetting() {
-        binding.imgHome.setImageResource(R.drawable.ic_home_zori_e)
-        binding.imgSetting.setImageResource(R.drawable.ic_settings_zori)
-        binding.imgProfile.setImageResource(R.drawable.ic_profile_zori_e)
-        binding.imgShop.setImageResource(R.drawable.ic_shop_zori_e)
-    }
+
 
     private fun activeProfile() {
         binding.imgHome.setImageResource(R.drawable.ic_home_zori_e)
-        binding.imgSetting.setImageResource(R.drawable.ic_settin_zori_e)
         binding.imgProfile.setImageResource(R.drawable.ic_profile_zori)
         binding.imgShop.setImageResource(R.drawable.ic_shop_zori_e)
     }
 
     private fun activeShop() {
         binding.imgHome.setImageResource(R.drawable.ic_home_zori_e)
-        binding.imgSetting.setImageResource(R.drawable.ic_settin_zori_e)
         binding.imgProfile.setImageResource(R.drawable.ic_profile_zori_e)
         binding.imgShop.setImageResource(R.drawable.ic_shop_zori)
     }

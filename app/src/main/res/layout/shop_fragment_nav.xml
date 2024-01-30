@@ -101,12 +101,11 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_add_order"
-        android:layout_width="150dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="4dp"
-        android:backgroundTint="@color/ebb4"
-        android:padding="3dp"
+        android:backgroundTint="#E82828"
         android:text="ادامه فرآیند خرید"
         android:textColor="@color/white"
         android:textSize="15sp"

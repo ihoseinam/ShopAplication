@@ -8,13 +8,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.snackbar.Snackbar
+import ir.hoseinahmadi.shopapplication.R
 import ir.hoseinahmadi.shopapplication.Rom.db.DBHandler
+import ir.hoseinahmadi.shopapplication.Rom.db.dao.UserDAO
 import ir.hoseinahmadi.shopapplication.Rom.db.model.UserEntity
 import ir.hoseinahmadi.shopapplication.databinding.HomeInfoFragmentBinding
+import ir.hoseinahmadi.shopapplication.fragmentNav.HomeFragment
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -49,9 +54,22 @@ class HomeFragmentInfo : Fragment(
         binding.txtPriceItemprr.text = zori
         binding.textView.text = info
         binding.txtVip.text = vip
+        val db = DBHandler.getDatabase(context as Activity)
+
+        lifecycleScope.launch {
+            val userIdToCheck = id!!
+            val userEntity = db.userDao().getUserById(userIdToCheck).first()
+            if (userEntity != null) {
+                binding.addOrder.visibility =View.INVISIBLE
+                binding.txtMojod.visibility =View.VISIBLE
+            } else {
+                binding.addOrder.visibility =View.VISIBLE
+                binding.txtMojod.visibility =View.INVISIBLE
+            }
+        }
+
 
         binding.addOrder.setOnClickListener {
-            val db = DBHandler.getDatabase(context as Activity)
             lifecycleScope.launch {
                 withContext(Dispatchers.IO) {
                     try {
@@ -62,6 +80,7 @@ class HomeFragmentInfo : Fragment(
                                 price = price!!,
                             )
                         )
+
                         Snackbar.make(binding.root, "", Snackbar.LENGTH_SHORT)
                             .setText("محصول با موفقیت به سبد خرید اضافه شد")
                             .setTextColor(Color.WHITE)
@@ -80,8 +99,18 @@ class HomeFragmentInfo : Fragment(
 
                     }
                 }
+                val userIdToCheck = id!!
+                val userEntity = db.userDao().getUserById(userIdToCheck).first()
+                if (userEntity != null) {
+                    binding.addOrder.visibility =View.INVISIBLE
+                    binding.txtMojod.visibility =View.VISIBLE
+                } else {
+                    binding.addOrder.visibility =View.VISIBLE
+                    binding.txtMojod.visibility =View.INVISIBLE
+                }
             }
 
         }
+
     }
 }

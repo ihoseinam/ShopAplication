@@ -26,5 +26,7 @@ interface UserDAO {
     @Delete
     fun deleteUsers(user: UserEntity)
 
+    @Query("SELECT * FROM ${DBHandler.USER_TABLE} WHERE id = :userId")
+    fun getUserById(userId: Int): Flow<UserEntity?>
 
 }
