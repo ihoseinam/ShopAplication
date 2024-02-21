@@ -8,7 +8,6 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface UserDAO {
     @Insert
-
     fun insertUser(vararg user: UserEntity)
 
     @get:Query("SELECT * FROM ${DBHandler.USER_TABLE}")

@@ -5,7 +5,6 @@ import android.os.Bundle
 import ir.hoseinahmadi.shopapplication.databinding.ActivityMainBinding
 import ir.hoseinahmadi.shopapplication.fragmentNav.HomeFragment
 import ir.hoseinahmadi.shopapplication.fragmentNav.InfoFragment
-import ir.hoseinahmadi.shopapplication.fragmentNav.SettingFragment
 import ir.hoseinahmadi.shopapplication.fragmentNav.ShopFragment
 
 class MainActivity : AppCompatActivity(),ActiveItem {

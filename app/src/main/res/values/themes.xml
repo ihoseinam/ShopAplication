@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.ShopApplication" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">#009688</item>
-        <item name="fontFamily">@font/s</item>
+        <item name="fontFamily">@font/iranyekanmedium</item>
         <item name="colorPrimaryVariant">#59B1A9</item>
         <item name="colorOnPrimary">#33ab9f</item>
         <!-- Secondary brand color. -->

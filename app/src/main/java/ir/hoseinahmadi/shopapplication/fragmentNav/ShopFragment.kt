@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -102,7 +103,6 @@ class ShopFragment : Fragment(), Request {
             withContext(Dispatchers.IO) {
                 db.userDao().getzori.collect { agesList ->
                     val totalAge = agesList.sum()
-
                     withContext(Dispatchers.Main) {
                         val zori = String.format("%,d", totalAge)
                         binding.txtPrice.text = zori
@@ -139,9 +139,19 @@ class ShopFragment : Fragment(), Request {
     private fun addOrder() {
         lifecycleScope.launch {
             readItemsFromDatabase().collect { shoppingItems ->
-                val adapter = ShoppingCartAdapter(shoppingItems,lifecycleScope,context as Activity)
+                val adapter =
+                    ShoppingCartAdapter(shoppingItems, lifecycleScope, context as Activity)
                 binding.recyclerView.layoutManager = LinearLayoutManager(context)
                 binding.recyclerView.adapter = adapter
+                if (shoppingItems.isEmpty()) {
+                    binding.imgemty.visibility = View.VISIBLE
+                    binding.txtemty.visibility = View.VISIBLE
+                }
+                else {
+                    binding.imgemty.visibility = View.INVISIBLE
+                    binding.txtemty.visibility = View.INVISIBLE
+                }
+
             }
         }
 
@@ -161,7 +171,7 @@ class ShopFragment : Fragment(), Request {
         snack("ارور")
     }
 
-   private fun snack(text: String) {
+    private fun snack(text: String) {
         val snake = Snackbar.make(binding.root, "no internet ", Snackbar.LENGTH_SHORT)
         snake.animationMode = BaseTransientBottomBar.ANIMATION_MODE_SLIDE
         snake.setText(text)

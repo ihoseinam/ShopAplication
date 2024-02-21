@@ -10,5 +10,4 @@ data class UserEntity(
   @PrimaryKey val id: Int,
   @ColumnInfo val name: String,
   @ColumnInfo val price: Int,
-
   )

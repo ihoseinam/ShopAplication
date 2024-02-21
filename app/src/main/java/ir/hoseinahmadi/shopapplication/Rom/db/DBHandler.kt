@@ -7,7 +7,6 @@ import androidx.room.RoomDatabase
 import ir.hoseinahmadi.shopapplication.Rom.db.dao.UserDAO
 import ir.hoseinahmadi.shopapplication.Rom.db.model.UserEntity
 
-
 @Database(
     entities = [UserEntity::class],
     version = DBHandler.DATABASE_VERSION

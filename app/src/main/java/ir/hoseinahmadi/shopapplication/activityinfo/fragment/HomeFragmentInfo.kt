@@ -21,6 +21,7 @@ import ir.hoseinahmadi.shopapplication.fragmentNav.HomeFragment
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 
 class HomeFragmentInfo : Fragment(
@@ -56,7 +57,7 @@ class HomeFragmentInfo : Fragment(
         binding.txtVip.text = vip
         val db = DBHandler.getDatabase(context as Activity)
 
-        lifecycleScope.launch {
+        lifecycleScope.launch{
             val userIdToCheck = id!!
             val userEntity = db.userDao().getUserById(userIdToCheck).first()
             if (userEntity != null) {
