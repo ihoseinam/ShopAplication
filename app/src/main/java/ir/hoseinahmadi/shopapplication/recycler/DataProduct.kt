@@ -8,6 +8,6 @@ data class DataProduct(
     val imgAddresss: Int,
     val rating: Double= 3.5,
     val info: String="",
-    val video: ArrayList<String> ,
+    val video: ArrayList<String>,
     val vip :String = "",
 )

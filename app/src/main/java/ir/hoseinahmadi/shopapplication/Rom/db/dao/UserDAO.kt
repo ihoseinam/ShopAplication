@@ -28,4 +28,8 @@ interface UserDAO {
     @Query("SELECT * FROM ${DBHandler.USER_TABLE} WHERE id = :userId")
     fun getUserById(userId: Int): Flow<UserEntity?>
 
+    @Query("SELECT COUNT(*) FROM ${DBHandler.USER_TABLE}")
+    fun getProductCount(): Flow<Int>
+
+
 }
